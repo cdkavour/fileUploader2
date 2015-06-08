@@ -4,8 +4,8 @@ var fs = require('fs');
 var querystring = require('querystring');
 
 var getShow = router.get('/', function(req, res, next) {
-	res.writeHead(200, {"Content-Type": "image/png"});
-	fs.createReadStream("../fileStorage/test.png").pipe(res);
+	// res.writeHead(200, {"Content-Type": "image/png"});
+	// fs.createReadStream(file).pipe(res);
 });
 
 var show = {};
