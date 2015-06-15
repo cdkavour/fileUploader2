@@ -31,13 +31,13 @@ var getUpload = router.post('/', function(req, res, next) {
 	console.log(req.files);
 
 	var name = req.files.upload.name;
-	var filepath = '../fileStorage/' + name;
+	var filepath = '/fileStorage/' + name;
 
 	console.log(filepath);
 
 	res.writeHead(200, {"Content-Type": "text/html"});
 	res.write("received file:<br/>");
-	res.write("<img src= filepath />");
+	res.write("<img src='" + filepath + "' />");
 	res.end();
 });
 
