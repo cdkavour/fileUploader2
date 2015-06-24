@@ -1,31 +1,53 @@
+// require middleware
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var multer = require('multer');
+var mongoose = require('mongoose');
 
+// require routes
 var index = require('./routes/index');
 var upload = require('./routes/upload');
 var show = require('./routes/show');
+var download = require('./routes/download');
+var profile = require('./routes/profile');
 
+// require database
+var database = require('./database/setUp');
+
+
+/* *********************************************************** */
+//        Define the app using express
 var app = express();
+/* *********************************************************** */
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+
+/* *********************************************************** */
+//        Set the view engine to use 'jade' views
+app.set('views', path.join(__dirname, 'public/views'));
 app.set('view engine', 'jade');
+/* *********************************************************** */
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+
+////////////////////////////// SET MIDDLEWARE ////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+/* ********************************************************************* */
+//        Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/fileStorage", express.static(__dirname + "/fileStorage"));
-
+/* ********************************************************************* */
+//        Use 'logger' middleware for logging to the console
+app.use(logger('dev'));
+/* ********************************************************************* */
+//        Use 'body-parser' middleware to parse JSON and URLENCODED data
+//        (populates 'req.body' with data being parsed)
+//        (use multer for multi-part data)
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+/* ********************************************************************* */
+//        Use 'multer' middleware to process multi-part data files
 app.use(multer({
   dest: './fileStorage/',
   rename: function(fieldname, filename) {
@@ -33,9 +55,25 @@ app.use(multer({
   }
 }));
 
+
+////////////////////////////// DIRECT ROUTES /////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+/* ********************************************************************* */
+//        Direct get requests to their respective routes
 app.use('/', index.onGet);
 app.use('/upload', upload.onGet);
 app.use('/show', show.onGet);
+app.use('/download', download.onGet);
+app.use('/profile', profile.loadMainProfilePage);
+/* ********************************************************************* */
+
+////////////////////////////// SET UP DATABASE ///////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+// database.setUp();
+
+////////////////////////////// ERROR HANDLING ////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -69,4 +107,6 @@ app.use(function(err, req, res, next) {
 });
 
 
+/* ********************************************************************* */
+//        Export App
 module.exports = app;

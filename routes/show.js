@@ -1,13 +1,15 @@
+// require middleware
 var express = require('express');
-var router = express.Router();
-var fs = require('fs');
-var querystring = require('querystring');
 
+// use a the built in modular, mountable route handler to handle routes for 'show'
+var router = express.Router();
+
+/* GET show page. */
 var getShow = router.get('/', function(req, res, next) {
-	// res.writeHead(200, {"Content-Type": "image/png"});
-	// fs.createReadStream(file).pipe(res);
+	res.send("show this page");
 });
 
+// export the show route as an object with a get method
 var show = {};
 show.onGet = getShow;
 

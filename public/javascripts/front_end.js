@@ -1,0 +1,1 @@
+var front_end = angular.module('AdmittApp', []);

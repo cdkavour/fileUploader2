@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+	html
+	head
+		meta(http-equiv='Content-Type', content="text/html; '+\'charset=UTF-8")  
+		link(rel='stylesheet', href='../stylesheets/style.css')
+	body(ng-app="AdmittApp")
+		.main(ng-controller="MainController")
+			h1 Admitt
+			h2 Welcome to Admitt's File Manager!
+			br
+			ul
+				li
+					p Upload a file below:
+					form(action='/upload', enctype='multipart/form-data', method='post')
+						input(type='file', name='upload', multiple='multiple')
+						|       
+						input(type='submit', value='Upload File')
+
+				li
+					p Download a file:
+					button(type='button') View your files
+
+		// directives
+
+		// modules
+		script(src='../javascripts/front_end.js')
+
+		// controllers
+		script(src='../javascritps/controllers/MainController.js')
