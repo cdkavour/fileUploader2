@@ -14,7 +14,7 @@ var download = require('./routes/download');
 var profile = require('./routes/profile');
 
 // require database
-var database = require('./database/setUp');
+// var database = require('./database/setUp');
 
 
 /* *********************************************************** */
@@ -64,6 +64,7 @@ app.use(multer({
 app.use('/', index.onGet);
 app.use('/upload', upload.onGet);
 app.use('/show', show.onGet);
+app.use('/show/uploadedFile', show.getFile);
 app.use('/download', download.onGet);
 app.use('/profile', profile.loadMainProfilePage);
 /* ********************************************************************* */

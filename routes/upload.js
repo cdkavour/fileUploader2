@@ -3,7 +3,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 
 // require database
-var database = require('../database/setUp');
+// var database = require('../database/setUp');
 
 // use a the built in modular, mountable route handler to handle routes for 'upload'
 var router = express.Router();
@@ -13,25 +13,25 @@ var getUpload = router.post('/', function(req, res, next) {
 
 
 	//        Connect to the local database 'mydb'
-	mongoose.connect('mongodb://localhost/mydb');
+	mongoose.connect('mongodb://localhost/27107/mydb');
 
 	//        Define schema for uploading files to the database
 	mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-	mongoose.connection.once('open', function(cb) {
+	// mongoose.connection.once('open', function(cb) {
 
-	  console.log('debug');
-	  var uploadSchema = mongoose.Schema({
-	    name: String,
-	    size: Number,
-	    path: String,
-	    type: String
-	  });
-	//        Define model for uploading files to the database based on above schema
-	  var uploadedFile = mongoose.model('uploadedFile', uploadSchema);
+
+	// });
+
+	console.log('debug');
+	var uploadSchema = mongoose.Schema({
+	  name: String,
+	  size: Number,
+	  path: String,
+	  type: String
 	});
+	//        Define model for uploading files to the database based on above schema
+	var uploadedFile = mongoose.model('uploadedFile', uploadSchema);
 
-
-	
 	console.log(req.body);
 	console.log(req.files);
 
