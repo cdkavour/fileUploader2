@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var setUpDatabase = function() {
 
 	//        Connect to the local database 'mydb'
-	mongoose.connect('mongodb://localhost/27107');
+	mongoose.connect('mongodb://localhost/mydb');
 
 	//        Define schema for uploading files to the database
 	mongoose.connection.on('error', console.error.bind(console, 'connection error:'));

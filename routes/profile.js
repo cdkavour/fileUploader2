@@ -6,7 +6,7 @@ var router = express.Router();
 
 // get request handler for profile page:
 var mainGet = router.get('/', function(req, res, next) {
-	res.render('profile');
+	res.render('profile');                                                                                                            
 });
 
 // export the profile route as an object with a get method

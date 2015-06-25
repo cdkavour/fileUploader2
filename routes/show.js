@@ -32,7 +32,7 @@ var getUploadedFile = router.get('/uploadedFile/', function(req, res, next) {
 	  type: String
 	});
 	//        Show files
-	mongoose.model('uploadedFile', uploadSchema).find(function (err, uploadedFile) {
+	mongoose.model('uploadedFile').find(function (err, uploadedFile) {
 		res.send(uploadedFile);
 	});
 });

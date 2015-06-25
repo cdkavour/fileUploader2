@@ -13,7 +13,7 @@ var getUpload = router.post('/', function(req, res, next) {
 
 
 	//        Connect to the local database 'mydb'
-	mongoose.connect('mongodb://localhost/27107/mydb');
+	mongoose.connect('mongodb://localhost/27107');
 
 	//        Define schema for uploading files to the database
 	mongoose.connection.on('error', console.error.bind(console, 'connection error:'));

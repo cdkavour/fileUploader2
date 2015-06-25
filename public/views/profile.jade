@@ -3,14 +3,20 @@ html
 		meta(http-equiv='Content-Type', content="text/html; '+\'charset=UTF-8")
 		link(rel='stylesheet', href='../stylesheets/profileStyle.css')
 	body(ng-app="AdmittApp")
-		h1 Users Files:
+		.main(ng-controller='ProfileController')
+			.container
+				h1 {{ title }}
 
-		//show files (use angular/mongoose)
+				// show files (use angular/mongoose)
+				ul
+					li
+						p Anu Vora:
+						img(src='../../fileStorage/anu.png')
 
-		// directives:
+	// directives:
 
-		// controllers:
-		script(src='../javascripts/controllers/MainController.js')
+	// controllers:
+	script(src='../javascripts/controllers/ProfileController.js')
 
-		// modules:
-		script(src='../javascripts/front_end.js')
+	// modules:
+	script(src='../javascripts/app.js')
