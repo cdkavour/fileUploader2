@@ -1,17 +1,19 @@
 html
 	head
-		meta(http-equiv='Content-Type', content="text/html; '+\'charset=UTF-8")
+		meta(http-equiv='Content-Type', content="text/jade; '+\'charset=UTF-8")
 		link(rel='stylesheet', href='../stylesheets/profileStyle.css')
 	body(ng-app="AdmittApp")
 		.main(ng-controller='ProfileController')
 			.container
 				h1 {{ title }}
 
-				// show files (use angular/mongoose)
+				// show files (use a service)
 				ul
 					li
-						p Anu Vora:
-						img(src='../../fileStorage/anu.png')
+						.div(ng-repeat="file in files")
+							p {{ file.name }}
+							button(type="button" ng-click="") Download {{ file.name }}
+						
 
 	// directives:
 
@@ -20,3 +22,6 @@ html
 
 	// modules:
 	script(src='../javascripts/app.js')
+
+	// angular:
+	script(src='../javascripts/shared/angular.min.js')

@@ -5,8 +5,6 @@ var mongoose = require('mongoose');
 // use a the built in modular, mountable route handler to handle routes for 'show'
 var router = express.Router();
 
-
-
 	//        Connect to the local database 'mydb'
 	mongoose.connect('mongodb://localhost/27107/mydb');
 

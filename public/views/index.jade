@@ -10,6 +10,7 @@ block content
 		.main(ng-controller="MainController")
 			h1 Admitt
 			h2 Welcome to Admitt's File Manager!
+			h3 {{ title }}
 			br
 			ul
 				li
@@ -19,14 +20,21 @@ block content
 						|       
 						input(type='submit', value='Upload File')
 
+
 				li
 					p Download a file:
 					button(type='button') View your files
 
 		// directives
 
+		// services:
+		script(src="../javascripts/services/fileData.js")
+
 		// modules
 		script(src='../javascripts/app.js')
 
 		// controllers
-		script(src='../javascritps/controllers/MainController.js')
+		script(src='../javascripts/controllers/MainController.js')
+
+		// angular:
+		script(src="../javascripts/shared/angular.min.js")
