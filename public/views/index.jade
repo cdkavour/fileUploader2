@@ -10,7 +10,7 @@ block content
 		.main(ng-controller="MainController")
 			h1 Admitt
 			h2 Welcome to Admitt's File Manager!
-			h3 {{ title }}
+			button(type="button" ng-click="debug()") Click Me!
 			br
 			ul
 				li
@@ -23,7 +23,12 @@ block content
 
 				li
 					p Download a file:
-					button(type='button') View your files
+					form()
+						input(type='button', value='View Your Files', ng-click='seeFiles()')
+
+
+		// angular:
+		script(src="../javascripts/shared/angular.min.js")
 
 		// directives
 
@@ -35,6 +40,3 @@ block content
 
 		// controllers
 		script(src='../javascripts/controllers/MainController.js')
-
-		// angular:
-		script(src="../javascripts/shared/angular.min.js")

@@ -1,1 +1,1 @@
-var app = angular.module('AdmittApp', []);
+var app = angular.module('AdmittApp', ['profileCtrl', 'mainCtrl']);

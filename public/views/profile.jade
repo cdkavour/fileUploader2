@@ -3,7 +3,7 @@ html
 		meta(http-equiv='Content-Type', content="text/jade; '+\'charset=UTF-8")
 		link(rel='stylesheet', href='../stylesheets/profileStyle.css')
 	body(ng-app="AdmittApp")
-		.main(ng-controller='ProfileController')
+		.main(ng-controller='profileCtrl')
 			.container
 				h1 {{ title }}
 
@@ -17,11 +17,12 @@ html
 
 	// directives:
 
+	// angular:
+	script(src='javascripts/shared/angular.min.js')
+
 	// controllers:
-	script(src='../javascripts/controllers/ProfileController.js')
+	script(src='javascripts/controllers/ProfileController.js')
 
 	// modules:
-	script(src='../javascripts/app.js')
+	script(src='javascripts/app.js')
 
-	// angular:
-	script(src='../javascripts/shared/angular.min.js')
